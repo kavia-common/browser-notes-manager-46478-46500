@@ -2,12 +2,12 @@
   "name": "angular",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "dev": "ng serve --host 0.0.0.0 --port 3000",
-    "start": "ng serve --host 0.0.0.0 --port 3000",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "ng": "npx ng",
+    "dev": "npx ng serve --host 0.0.0.0 --port 3000",
+    "start": "npx ng serve --host 0.0.0.0 --port 3000",
+    "build": "npx ng build",
+    "watch": "npx ng build --watch --configuration development",
+    "test": "npx ng test",
     "serve:ssr:angular": "node dist/angular/server/server.mjs"
   },
   "private": true,
