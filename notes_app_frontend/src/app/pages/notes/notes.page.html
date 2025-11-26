@@ -1,0 +1,20 @@
+<app-topbar></app-topbar>
+
+<main class="layout">
+  <app-sidebar
+    class="side"
+    [notes]="filtered()"
+    [selectedId]="selectedId()"
+    (selectNote)="onSelect($event)"
+    (newNote)="onCreate()"
+    (deleteNote)="onDelete($event)"
+    (searchChange)="onSearch($event)"
+  ></app-sidebar>
+
+  <section class="content">
+    <app-editor
+      [note]="selectedNote()"
+      (noteChange)="onNoteChange($event)"
+    ></app-editor>
+  </section>
+</main>

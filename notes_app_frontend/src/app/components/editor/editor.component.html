@@ -1,0 +1,28 @@
+<div class="editor" *ngIf="note as current; else placeholder">
+  <div class="editor-header">
+    <input
+      class="title-input"
+      placeholder="Note title..."
+      [ngModel]="localTitle"
+      (ngModelChange)="onTitleChange($event)"
+    />
+    <div class="meta">
+      <span class="chip">Updated {{ current.updatedAt | date:'short' }}</span>
+      <span class="chip chip-amber" *ngIf="(current.content || '').length === 0">Empty</span>
+    </div>
+  </div>
+  <textarea
+    class="content-textarea"
+    placeholder="Start typing your note..."
+    [ngModel]="localContent"
+    (ngModelChange)="onContentChange($event)"
+  ></textarea>
+</div>
+
+<ng-template #placeholder>
+  <div class="empty">
+    <div class="icon">📝</div>
+    <div class="headline">Select or create a note</div>
+    <div class="sub">Your notes are saved locally until a backend is configured.</div>
+  </div>
+</ng-template>

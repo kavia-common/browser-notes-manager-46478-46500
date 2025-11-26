@@ -1,0 +1,44 @@
+<nav class="sidebar">
+  <div class="brand">
+    <div class="logo">🌊</div>
+    <div class="title">
+      <span class="name">Ocean Notes</span>
+      <span class="sub">Professional</span>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-primary" (click)="newNote.emit()" title="Create note">
+      + New note
+    </button>
+    <input
+      type="text"
+      class="search"
+      placeholder="Search notes..."
+      [ngModel]="query()"
+      (ngModelChange)="onSearchChange($event)"
+    />
+  </div>
+
+  <ul class="notes-list" role="list">
+    <li
+      *ngFor="let n of notes"
+      class="note-item"
+      [class.selected]="isSelected(n)"
+      (click)="selectNote.emit(n.id)"
+    >
+      <div class="note-title">{{ n.title || 'Untitled note' }}</div>
+      <div class="note-meta">
+        {{ n.updatedAt | date:'mediumDate' }}
+      </div>
+      <button
+        class="delete"
+        title="Delete"
+        (click)="$event.stopPropagation(); deleteNote.emit(n.id);"
+        aria-label="Delete note"
+      >
+        ×
+      </button>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,26 @@
+.layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  height: calc(100dvh - 58px);
+  background: #f9fafb;
+}
+
+.side {
+  height: 100%;
+}
+
+.content {
+  min-width: 0;
+  height: 100%;
+  overflow: auto;
+  background: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    height: auto;
+    min-height: calc(100dvh - 58px);
+  }
+}

@@ -1,59 +1,49 @@
-# Angular
+# Ocean Notes (Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
+A modern, responsive notes application with an Ocean Professional theme.
+
+- Sidebar for notes list with search
+- Main editor for viewing/editing a note
+- Create, edit, delete notes
+- Local persistence using `localStorage` (will later be replaced by backend API)
+- Responsive layout with top navigation
 
 ## Development server
 
-To start a local development server, run:
+Start the dev server (port configured to 3000 in `angular.json`):
 
 ```bash
-ng serve
+npm install
+npm run start
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open your browser at: http://localhost:3000
 
-## Code scaffolding
+## Environment variables
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+If the following variables are provided by the environment, the app can later integrate with a backend. Until then, it falls back to localStorage:
 
-```bash
-ng generate component component-name
-```
+- `NG_APP_API_BASE` or `NG_APP_BACKEND_URL`
+- `NG_APP_FRONTEND_URL`
+- `NG_APP_WS_URL`
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
+See `.env.example` for a full list of supported variables.
 
 ## Building
 
-To build the project run:
-
 ```bash
-ng build
+npm run build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Artifacts are emitted to `dist/angular`.
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Tests
 
 ```bash
-ng test
+npm test
 ```
 
-## Running end-to-end tests
+## Notes
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- All data is stored locally in your browser under the key `notes-app__notes`.
+- When a backend is added, the NotesService is prepared to read `NG_APP_API_BASE`/`NG_APP_BACKEND_URL` for API integration.
