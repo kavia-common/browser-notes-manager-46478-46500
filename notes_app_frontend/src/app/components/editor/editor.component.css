@@ -6,8 +6,8 @@
   height: 100%;
   gap: 12px;
   padding: 16px;
-  background: var(--surface);
-  color: var(--text);
+  background: var(--surface); /* #000 */
+  color: var(--text);         /* #fff */
 }
 
 .editor-header {
@@ -22,19 +22,19 @@
   font-size: 20px;
   font-weight: 700;
   padding: 10px 12px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  border: 1px solid var(--border); /* #fff */
+  border-radius: 0;
   outline: none;
-  transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
-  background: var(--elevated);
-  color: var(--text);
+  background: var(--elevated); /* #000 */
+  color: var(--text);          /* #fff */
 }
 
-.title-input::placeholder { color: var(--input-placeholder); }
+.title-input::placeholder { color: var(--input-placeholder); opacity: .5; }
 
 .title-input:focus {
   border-color: var(--input-focus-ring);
-  box-shadow: 0 0 0 3px rgba(212,212,212,0.25);
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 
 .meta {
@@ -47,20 +47,19 @@
 .chip {
   font-size: 12px;
   color: var(--text);
-  background: #1a1a1a;
-  border: 1px solid var(--border);
+  background: var(--surface);     /* #000 */
+  border: 1px solid var(--border);/* #fff */
   padding: 6px 8px;
-  border-radius: 999px;
+  border-radius: 0;
   font-weight: 600;
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .chip-amber {
-  /* unified monochrome variant */
   color: var(--text);
-  background: #1a1a1a;
+  background: var(--surface);
   border: 1px solid var(--border);
-  opacity: 0.7;
+  opacity: 1;
 }
 
 .content-textarea {
@@ -70,20 +69,19 @@
   font-size: 15px;
   line-height: 1.6;
   padding: 14px;
-  border: 1px solid var(--border);
-  border-radius: 14px;
+  border: 1px solid var(--border); /* #fff */
+  border-radius: 0;
   outline: none;
-  transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
-  background: var(--elevated);
-  color: var(--text);
-  box-shadow: inset 0 16px 28px rgba(0,0,0,0.25);
+  background: var(--elevated);     /* #000 */
+  color: var(--text);              /* #fff */
 }
 
-.content-textarea::placeholder { color: var(--input-placeholder); }
+.content-textarea::placeholder { color: var(--input-placeholder); opacity: .5; }
 
 .content-textarea:focus {
   border-color: var(--input-focus-ring);
-  box-shadow: 0 0 0 3px rgba(212,212,212,0.25);
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 
 .empty {
@@ -91,9 +89,9 @@
   display: grid;
   place-items: center;
   text-align: center;
-  color: var(--text-muted);
+  color: var(--text); /* use white text */
   padding: 24px;
-  background: var(--surface);
+  background: var(--surface); /* #000 */
 }
 
 .icon {

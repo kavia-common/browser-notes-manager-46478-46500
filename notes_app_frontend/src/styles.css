@@ -1,37 +1,37 @@
-/* Monochrome Global Styles */
+/* Pure Black & White Global Styles */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { height: 100%; }
 
-/* CSS Variables for Monochrome Theme */
+/* CSS Variables for Pure B/W Theme */
 :root {
-  --bg: #0a0a0a;            /* near-black background */
-  --surface: #111111;       /* dark surfaces/panels */
-  --elevated: #161616;      /* slightly elevated cards/inputs */
-  --text: #fafafa;          /* near-white text */
-  --text-muted: #bfbfbf;    /* muted text */
-  --border: #2a2a2a;        /* borders */
-  --focus: #e5e5e5;         /* focus outline (light gray) */
-  --shadow: 0 1px 2px rgba(0,0,0,0.6), 0 4px 12px rgba(0,0,0,0.35);
+  --bg: #000;            /* pure black background */
+  --surface: #000;       /* all surfaces pure black */
+  --elevated: #000;      /* elevated stays black, rely on borders/outlines */
+  --text: #fff;          /* pure white text */
+  --text-muted: #fff;    /* use white; reduce opacity where needed */
+  --border: #fff;        /* white borders for separation */
+  --focus: #fff;         /* white focus outline */
+  --shadow: none;        /* no shadows to keep strict B/W */
 
-  --link: #e5e5e5;          /* links (grayscale) */
-  --link-hover: #ffffff;    /* link hover (pure white) */
+  --link: #fff;          /* links white */
+  --link-hover: #fff;    /* links stay white */
 
-  --btn-primary-bg: #000000;
-  --btn-primary-fg: #ffffff;
-  --btn-primary-hover: #141414;
+  --btn-primary-bg: #000;
+  --btn-primary-fg: #fff;
+  --btn-primary-hover: #000;
 
-  --btn-secondary-bg: #ffffff;
-  --btn-secondary-fg: #000000;
-  --btn-secondary-hover: #e5e5e5;
+  --btn-secondary-bg: #fff;
+  --btn-secondary-fg: #000;
+  --btn-secondary-hover: #fff;
 
-  --input-bg: #0f0f0f;
-  --input-fg: #fafafa;
-  --input-placeholder: #9a9a9a;
-  --input-border: #2a2a2a;
-  --input-focus-ring: #d4d4d4;
+  --input-bg: #000;
+  --input-fg: #fff;
+  --input-placeholder: #fff;
+  --input-border: #fff;
+  --input-focus-ring: #fff;
 
-  --scrollbar: #3a3a3a;
-  --scrollbar-hover: #5a5a5a;
+  --scrollbar: #fff;
+  --scrollbar-hover: #fff;
 }
 
 body {
@@ -47,7 +47,7 @@ input, textarea { font-family: inherit; color: var(--input-fg); background: var(
 /* Links */
 a {
   color: var(--link);
-  text-decoration-color: rgba(255,255,255,0.25);
+  text-decoration-color: #fff;
 }
 a:hover, a:focus {
   color: var(--link-hover);
@@ -61,36 +61,36 @@ a:hover, a:focus {
   outline-offset: 2px;
 }
 
-/* Scrollbars */
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-thumb { background: var(--scrollbar); border-radius: 8px; }
+/* Scrollbars (white thumb on black track) */
+::-webkit-scrollbar { width: 10px; height: 10px; background: #000; }
+::-webkit-scrollbar-thumb { background: var(--scrollbar); border-radius: 0; }
 ::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-hover); }
 
 /* Utility classes to aid components */
 .mono-surface { background: var(--surface); color: var(--text); }
-.mono-elevated { background: var(--elevated); color: var(--text); box-shadow: var(--shadow); }
+.mono-elevated { background: var(--elevated); color: var(--text); }
 .mono-border { border: 1px solid var(--border); }
 
 /* Button base + variants */
 .btn {
   padding: 10px 12px;
-  border-radius: 10px;
+  border-radius: 0;
   border: 1px solid var(--border);
   cursor: pointer;
   font-weight: 600;
-  transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .06s ease, filter .2s ease;
+  transition: transform .06s ease;
 }
 .btn-primary {
   background: var(--btn-primary-bg);
   color: var(--btn-primary-fg);
 }
-.btn-primary:hover { background: var(--btn-primary-hover); }
+.btn-primary:hover { background: var(--btn-primary-hover); outline: 2px solid #fff; outline-offset: 2px; }
 .btn-secondary {
   background: var(--btn-secondary-bg);
   color: var(--btn-secondary-fg);
-  border-color: #d4d4d4;
+  border-color: #000;
 }
-.btn-secondary:hover { background: var(--btn-secondary-hover); }
+.btn-secondary:hover { background: var(--btn-secondary-hover); outline: 2px solid #000; outline-offset: 2px; }
 
 /* Inputs */
 input[type="text"], input[type="search"], textarea {
@@ -98,9 +98,10 @@ input[type="text"], input[type="search"], textarea {
   color: var(--input-fg);
   border: 1px solid var(--input-border);
 }
-input::placeholder, textarea::placeholder { color: var(--input-placeholder); }
+input::placeholder, textarea::placeholder { color: var(--input-placeholder); opacity: 0.5; }
 input:focus, textarea:focus {
   border-color: var(--input-focus-ring);
-  box-shadow: 0 0 0 3px rgba(212,212,212,0.25);
-  outline: none;
+  box-shadow: none;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }

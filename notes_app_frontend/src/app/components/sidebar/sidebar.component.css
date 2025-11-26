@@ -8,11 +8,11 @@
   flex-direction: column;
   gap: 12px;
   height: 100%;
-  background: var(--surface);
-  border-right: 1px solid var(--border);
+  background: var(--surface);          /* #000 */
+  border-right: 1px solid var(--border); /* #fff */
   padding: 16px;
   width: 320px;
-  color: var(--text);
+  color: var(--text);                  /* #fff */
 }
 
 .brand {
@@ -20,7 +20,7 @@
   align-items: center;
   gap: 12px;
   padding-bottom: 8px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border); /* #fff */
 }
 
 .logo {
@@ -31,8 +31,7 @@
   height: 32px;
   display: grid;
   place-items: center;
-  border-radius: 8px;
-  box-shadow: var(--shadow);
+  border-radius: 0;
 }
 
 .title .name {
@@ -43,7 +42,8 @@
 .title .sub {
   display: block;
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--text); /* keep white but use opacity */
+  opacity: .6;
   margin-top: -2px;
 }
 
@@ -53,31 +53,32 @@
   gap: 8px;
 }
 
-.btn { /* base defined in global; keep for specificity here if needed */ }
+.btn { /* base defined in global */ }
 .btn-primary {
   background: var(--btn-primary-bg);
   color: var(--btn-primary-fg);
   border-color: var(--border);
-  box-shadow: var(--shadow);
 }
 .btn-primary:hover {
   background: var(--btn-primary-hover);
   transform: translateY(-1px);
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 
 .search {
-  border: 1px solid var(--input-border);
-  background: var(--input-bg);
-  color: var(--input-fg);
-  border-radius: 10px;
+  border: 1px solid var(--input-border); /* #fff */
+  background: var(--input-bg);           /* #000 */
+  color: var(--input-fg);                /* #fff */
+  border-radius: 0;
   padding: 10px 12px;
   outline: none;
-  transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
 }
-.search::placeholder { color: var(--input-placeholder); }
+.search::placeholder { color: var(--input-placeholder); opacity: .5; }
 .search:focus {
   border-color: var(--input-focus-ring);
-  box-shadow: 0 0 0 3px rgba(212,212,212,0.25);
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 
 .notes-list {
@@ -92,19 +93,20 @@
 .note-item {
   position: relative;
   padding: 10px 32px 10px 12px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--elevated);
+  border: 1px solid var(--border); /* #fff */
+  border-radius: 0;
+  background: var(--elevated);     /* #000 */
   cursor: pointer;
-  transition: border-color .2s ease, box-shadow .2s ease, transform .06s ease, background-color .2s ease;
+  transition: transform .06s ease;
 }
 .note-item:hover {
-  border-color: #d4d4d4;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.35);
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 .note-item.selected {
-  border-color: #ffffff;
-  box-shadow: 0 10px 18px rgba(0,0,0,0.45);
+  border-color: #fff;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 
 .note-title {
@@ -115,28 +117,31 @@
 
 .note-meta {
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--text);
+  opacity: .7;
 }
 
 .delete {
   position: absolute;
   right: 8px;
   top: 8px;
-  border: none;
-  background: transparent;
+  border: 1px solid #fff;
+  background: #000;
   font-size: 18px;
   line-height: 1;
-  color: #e5e5e5;
+  color: #fff;
   cursor: pointer;
   padding: 2px 6px;
-  border-radius: 6px;
-  opacity: 0.75;
-  transition: background .2s ease, opacity .2s ease, color .2s ease;
+  border-radius: 0;
+  opacity: 1;
 }
 .delete:hover {
-  background: #1f1f1f;
-  opacity: 1;
-  color: #ffffff;
+  background: #000;
+  color: #000;
+  border-color: #fff;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  color: #fff;
 }
 
 @media (max-width: 900px) {

@@ -2,8 +2,8 @@
   display: grid;
   grid-template-columns: 320px 1fr;
   height: calc(100dvh - 58px);
-  background: var(--bg);
-  color: var(--text);
+  background: var(--bg);   /* #000 */
+  color: var(--text);      /* #fff */
 }
 
 .side {
@@ -14,8 +14,8 @@
   min-width: 0;
   height: 100%;
   overflow: auto;
-  background: var(--surface);
-  color: var(--text);
+  background: var(--surface); /* #000 */
+  color: var(--text);         /* #fff */
 }
 
 @media (max-width: 900px) {
